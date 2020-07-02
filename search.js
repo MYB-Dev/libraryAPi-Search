@@ -14,6 +14,7 @@ var app = new Vue({
           .then((response) => response.json())
           .then((data) => {
             this.books = data;
+            console.log(data);
           });
       } catch (err) {
         console.log(err);

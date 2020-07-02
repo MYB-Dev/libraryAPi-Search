@@ -10,6 +10,9 @@
       .red {
         color: #ef6a6e;
       }
+      .loading {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -32,17 +35,22 @@
           @click="submit"
         />
       </form>
-      <div v-for="book in books" id="result">
-        <h3>{{book.title}}</h3>
-        <p>
-          <strong>{{book.author}}</strong> -
-          <em class="red"
-            >{{book.available ? 'Available' : 'Not available'}}</em
-          >
-          - <em>ISBN: {{book.isbn}}</em>
-        </p>
-        <p><em>Published: {{book.published}}</em></p>
-        <hr />
+      <div class="loading" v-if="loading">
+        <img src="./Spinner.svg" alt="loading" />
+      </div>
+      <div v-if="!loading">
+        <div v-for="book in books" id="result">
+          <h3>{{book.title}}</h3>
+          <p>
+            <strong>{{book.author}}</strong> -
+            <em class="red"
+              >{{book.available ? 'Available' : 'Not available'}}</em
+            >
+            - <em>ISBN: {{book.isbn}}</em>
+          </p>
+          <p><em>Published: {{book.published}}</em></p>
+          <hr />
+        </div>
       </div>
     </div>
     <script src="./vue.js"></script>

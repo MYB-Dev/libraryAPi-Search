@@ -4,6 +4,7 @@ var app = new Vue({
     type: '',
     search: '',
     books: [],
+    loading: false,
   },
   methods: {
     submit(e) {
@@ -15,10 +16,14 @@ var app = new Vue({
           .then((data) => {
             this.books = data;
             console.log(data);
+          })
+          .then(() => {
+            this.loading = false;
           });
       } catch (err) {
         console.log(err);
       }
+      this.loading = true;
       this.search = '';
       this.type = '';
       e.preventDefault();

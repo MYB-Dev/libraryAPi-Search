@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
     <title>LibraryAPI - Search</title>
+    <style>
+      .red {
+        color: #ef6a6e;
+      }
+    </style>
   </head>
   <body>
     <div class="container" id="app">
@@ -30,8 +35,11 @@
       <div v-for="book in books" id="result">
         <h3>{{book.title}}</h3>
         <p>
-          <strong>{{book.author}}</strong> - {{book.available ? 'Available' :
-          'Not available'}} - <em>ISBN: {{book.isbn}}</em>
+          <strong>{{book.author}}</strong> -
+          <em class="red"
+            >{{book.available ? 'Available' : 'Not available'}}</em
+          >
+          - <em>ISBN: {{book.isbn}}</em>
         </p>
         <p><em>Published: {{book.published}}</em></p>
         <hr />

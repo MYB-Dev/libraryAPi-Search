@@ -29,7 +29,12 @@
       </form>
       <div v-for="book in books" id="result">
         <h3>{{book.title}}</h3>
-        <p><strong>{{book.author}}</strong> - <em>ISBN: {{book.isbn}}</em></p>
+        <p>
+          <strong>{{book.author}}</strong> - {{book.available ? 'Available' :
+          'Not available'}} - <em>ISBN: {{book.isbn}}</em>
+        </p>
+        <p><em>Published: {{book.published}}</em></p>
+        <hr />
       </div>
     </div>
     <script src="./vue.js"></script>
